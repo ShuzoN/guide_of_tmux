@@ -41,10 +41,6 @@ and reattach them to a different terminal.
 
 ---
 
-### tmuxの雰囲気をつかむ
-
----
-
 ### あなたのターミナルこんなことになってませんか??
 
 ---
@@ -61,7 +57,11 @@ and reattach them to a different terminal.
 
 ---
 
-tmuxはこんなの
+### tmuxの雰囲気をつかむ
+
+---
+
+#### tmuxはこんなの
 ![image](https://user-images.githubusercontent.com/5877377/27993212-466591b2-64e0-11e7-9075-3abfd355a32f.png)
 
 ---
@@ -94,7 +94,8 @@ tmuxはこんなの
  * 起動した端末を画面分割して使用可能
    - 他のファイルを参照したりログ出力を参照しながらオペレーション可能
    
- * 起動した端末のデタッチ(切り離し)/アタッチ(接続)が可能  
+ * 起動した端末のデタッチ(切り離し)/アタッチ(接続)が可能
+   - ターミナル落ちても
 
 参考 : http://kanjuku-tomato.blogspot.jp/2014/02/tmux.html
 
