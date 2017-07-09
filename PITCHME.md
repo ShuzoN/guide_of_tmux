@@ -1,4 +1,4 @@
-# guide_of_tmux
+## guide_of_tmux
 
 @ShuzoN
 
@@ -51,7 +51,4 @@ linux
 ### tmuxの雰囲気をつかむ
 
 ---
-
-![]()
-
 
