@@ -56,13 +56,13 @@ and reattach them to a different terminal.
 
 ---
 #### iTerm でターミナル複数起動
+![image](https://user-images.githubusercontent.com/5877377/27993244-34c03ee8-64e1-11e7-9a40-db3c98053896.png)
 
-![image](https://user-images.githubusercontent.com/5877377/27993212-466591b2-64e0-11e7-9075-3abfd355a32f.png)
 
 ---
 
 tmuxはこんなの
-![tmuxのイメージ](https://user-images.githubusercontent.com/5877377/27993105-7da30e78-64dd-11e7-8be1-decce13d88cf.jpg)
+![image](https://user-images.githubusercontent.com/5877377/27993212-466591b2-64e0-11e7-9075-3abfd355a32f.png)
 
 ---
 
@@ -97,6 +97,8 @@ tmuxはこんなの
 ---
 
 #### インストール
+
+tmux 2.5を使う
 
 mac 
 
