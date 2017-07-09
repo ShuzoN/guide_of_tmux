@@ -128,6 +128,8 @@ linux
 
 ### セッション起動・接続と削除
 
+注意 : `<prefix>` のデフォルトは Ctrl-b
+
 ```sh
 // セッション作成・接続
 // カレントディレクトリがセッションのルートディレクトリになる
@@ -137,7 +139,6 @@ $ tmux
 $ tmux ls
 
 // セッションからデタッチ (一時切断)
-// <prefix> のデフォルトは Ctrl-b
 <prefix>d
 
 // セッションへアタッチ (接続)
@@ -165,5 +166,29 @@ $ tmux kill-session -t target_sessoin_id
 
 ![2017-07-09 21 33 13](https://user-images.githubusercontent.com/5877377/27993982-a97a19c2-64ee-11e7-97b1-5730734490ac.jpg)
 
-
 ---
+
+#### ウィンドウの作成, 削除, 表示切り替え
+
+```
+// ウィンドウの新規作成
+<prefix>c
+
+// ウィンドウの削除
+// 以下のコマンド or ウィンドウ内のペインをすべて閉じる
+$ tmux killw -t target_window_id
+
+// ウィンドウのrename
+$ tmux rename-window -t old_window_name new_window_name
+or
+<prefix>,
+
+// ウィンドウの切り替え
+<prefix>n
+---
+
+### ペインの作成, 削除, 表示切り替え
+
+
+
+```
