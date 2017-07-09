@@ -1,3 +1,5 @@
+theme : moon
+
 ### guide_of_tmux
 
 @ShuzoN
@@ -12,6 +14,10 @@ tmux (てぃーまっくす)とは, 仮想多重端末を
 一つのターミナルで仮想的に
 複数個のターミナルを起動できる. 
 
+---
+
+### はじめに
+
 [本家](https://github.com/tmux/tmux/wiki) より
 
 ```
@@ -23,3 +29,27 @@ and reattach them to a different terminal.
 ```
 
 ---
+
+### インストール
+
+mac 
+
+```sh
+$ brew install tmux
+```
+
+linux
+
+```sh
+ # tar.gzのリンクあげるから頑張ってほしい
+ https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz
+```
+
+---
+
+### tmuxの雰囲気をつかむ
+
+サーバクライアントで動作する仮想多重端末ツール
+
+
+
