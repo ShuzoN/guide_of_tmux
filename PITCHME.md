@@ -156,8 +156,7 @@ $ tmux kill-session -t target_sessoin_id
 #### ウィンドウ
 1画面を表す単位
 
-![image](https://user-images.githubusercontent.com/5877377/27993943-dae219fc-64ed-11e7-82cf-5b2eca93c9e0.png)
-
+![2017-07-09 19 22 02](https://user-images.githubusercontent.com/5877377/27993986-d58e37c8-64ee-11e7-9104-a23efbe9ba67.jpg)
 
 ---
 
