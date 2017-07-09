@@ -141,10 +141,30 @@ $ tmux ls
 <prefix>d
 
 // セッションへアタッチ (接続)
-$ tmux attach -t <session id>
+$ tmux attach -t target_session_id
 
 // セッションの削除
-$ tmux kill-session -t <sessoin id>
+$ tmux kill-session -t target_sessoin_id
 ```
+
+---
+
+### ウィンドウとペイン
+
+---
+
+#### ウィンドウ
+1画面を表す単位
+
+![image](https://user-images.githubusercontent.com/5877377/27993943-dae219fc-64ed-11e7-82cf-5b2eca93c9e0.png)
+
+
+---
+
+#### ペイン
+分割された画面(端末)を表す単位
+
+![2017-07-09 21 33 13](https://user-images.githubusercontent.com/5877377/27993982-a97a19c2-64ee-11e7-97b1-5730734490ac.jpg)
+
 
 ---
