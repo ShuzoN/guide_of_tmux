@@ -79,6 +79,11 @@ and reattach them to a different terminal.
  - 異なる環境から同じtmuxセッションへ接続可能  
 
 ---
+#### 大枠のイメージ
+
+![tmux_overview 001](https://user-images.githubusercontent.com/5877377/28044534-e5d01f1e-6612-11e7-8595-b61eaf41e40f.jpeg)
+
+---
 
 #### セッションのライフサイクル
 
@@ -95,7 +100,7 @@ and reattach them to a different terminal.
    - 他のファイルを参照したりログ出力を参照しながらオペレーション可能
    
  * 起動した端末のアタッチ(接続)/デタッチ(一時切断)が可能  
-   - ターミナル落ちても再接続出来る
+   - ターミナルが落ちる/sshが切れてもセッションがあれば再接続出来る
    
  * プロジェクト単位でセッション作れたりする  
    - 一瞬でプロジェクト切り替えられて便利
@@ -178,17 +183,93 @@ $ tmux kill-session -t target_sessoin_id
 // 以下のコマンド or ウィンドウ内のペインをすべて閉じる
 $ tmux killw -t target_window_id
 
-// ウィンドウのrename
+// ウィンドウの名前変更
 $ tmux rename-window -t old_window_name new_window_name
 or
 <prefix>,
 
 // ウィンドウの切り替え
-<prefix>n
----
+<prefix>n or <prefix>p
+<prefix> window_id
+```
 
+---
 ### ペインの作成, 削除, 表示切り替え
 
+//水平分割
+<prefix>"
 
+//垂直分割
+<prefix>%
+
+//ペインの選択
+<prefix>o
+
+//ペインの削除
+<prefix>x
+```
+
+---
+
+### カスタマイズ
+
+---
+
+#### .tmux.confによるカスタマイズ
+
+`~/.tmux.conf` に設定を書く  
+デフォルトのキーバインドを変えたり  
+見た目を変えることが出来る
+
+
+---
+
+#### オススメの設定
+
+詳細 : [ShuzoN/dotfiles/.tmux.conf](https://github.com/ShuzoN/dotfiles/blob/master/.tmux.conf#L135)
 
 ```
+
+# クリップボード共有を有効にする
+set-option -g default-command ""
+
+
+# 256色端末を使用する
+set -g default-terminal "screen-256color"
+
+
+# ペインの縦"|", 横"-"で分割し,ペインの分割幅を均等にする
+bind -n C-\ split-window -h 
+bind -n C-_ split-window -v
+
+# マウス操作を有効にする
+set-option -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
+
+# Ctrl-n でペインをローテーションしながら移動
+bind -n C-n select-window -n
+```
+
+---
+
+```
+
+# vimとtmux間を移動
+# http://takegue.hatenablog.com/entry/2015/01/26/031231
+# Smart pane switching with awareness of vim splits
+is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+bind -n C-h  if-shell "$is_vim" "send-keys C-h"   "select-pane -L"
+bind -n C-j  if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind -n C-k  if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind -n C-l  if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind -n C-_  if-shell "$is_vim" "send-keys C-_"  "split-window -v"
+bind -n C-\  if-shell "$is_vim" "send-keys C-\\" "split-window -h"
+bind -n C-x  if-shell "$is_vim" "send-keys :q" "kill-pane"
+
+```
+---
+
+tmuxで快適なターミナル生活を送ろう
+
+---
+
