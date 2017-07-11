@@ -230,14 +230,11 @@ or
 詳細 : [ShuzoN/dotfiles/.tmux.conf](https://github.com/ShuzoN/dotfiles/blob/master/.tmux.conf#L135)
 
 ```
-
 # クリップボード共有を有効にする
 set-option -g default-command ""
 
-
 # 256色端末を使用する
 set -g default-terminal "screen-256color"
-
 
 # ペインの縦"|", 横"-"で分割し,ペインの分割幅を均等にする
 bind -n C-\ split-window -h 
