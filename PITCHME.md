@@ -196,6 +196,7 @@ or
 ---
 ### ペインの作成, 削除, 表示切り替え
 
+```
 //水平分割
 <prefix>"
 
@@ -215,7 +216,7 @@ or
 
 ---
 
-#### .tmux.confによるカスタマイズ
+### .tmux.confによるカスタマイズ
 
 `~/.tmux.conf` に設定を書く  
 デフォルトのキーバインドを変えたり  
@@ -224,7 +225,7 @@ or
 
 ---
 
-#### オススメの設定
+### オススメの設定
 
 詳細 : [ShuzoN/dotfiles/.tmux.conf](https://github.com/ShuzoN/dotfiles/blob/master/.tmux.conf#L135)
 
