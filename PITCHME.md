@@ -243,14 +243,13 @@ bind -n C-_ split-window -v
 # マウス操作を有効にする
 set-option -g mouse on
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
-
-# Ctrl-n でペインをローテーションしながら移動
-bind -n C-n select-window -n
 ```
 
 ---
 
 ```
+# Ctrl-n でペインをローテーションしながら移動
+bind -n C-n select-window -n
 
 # vimとtmux間を移動
 # http://takegue.hatenablog.com/entry/2015/01/26/031231
