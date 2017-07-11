@@ -242,7 +242,8 @@ bind -n C-_ split-window -v
 
 # マウス操作を有効にする
 set-option -g mouse on
-bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" \
+ "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
 ```
 
 ---
@@ -254,7 +255,8 @@ bind -n C-n select-window -n
 # vimとtmux間を移動
 # http://takegue.hatenablog.com/entry/2015/01/26/031231
 # Smart pane switching with awareness of vim splits
-is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+is_vim='echo "#{pane_current_command}"  \ 
+  | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
 bind -n C-h  if-shell "$is_vim" "send-keys C-h"   "select-pane -L"
 bind -n C-j  if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
 bind -n C-k  if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
