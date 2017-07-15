@@ -32,11 +32,11 @@ tmux (てぃーまっくす)とは, 多重端末を
 [本家](https://github.com/tmux/tmux/wiki) より
 
 ```
-tmux is a terminal multiplexer.   
-It lets you switch easily between   
-several programs in one terminal,   
-detach them (they keep running in the background)   
-and reattach them to a different terminal. 
+tmux is a terminal multiplexer. 
+it enables a number of terminals to be 
+created, accessed, and controlled from a single screen. 
+tmux may be detached from a screen and
+continue running in the background, then later reattached. 
 ```
 
 ---
