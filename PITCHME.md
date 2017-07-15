@@ -126,8 +126,7 @@ $ brew install tmux
 linux
 
 ```sh
- # tar.gzのリンクあげるから頑張ってほしい
- https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz
+https://raw.githubusercontent.com/tmux/tmux/master/README
 ```
 ---
 
@@ -170,6 +169,22 @@ $ tmux kill-session -t target_sessoin_id
 分割された画面(端末)を表す単位
 
 ![2017-07-09 21 33 13](https://user-images.githubusercontent.com/5877377/27993982-a97a19c2-64ee-11e7-97b1-5730734490ac.jpg)
+
+---
+
+#### セッション, ウィンドウ, ペインの関係
+
+セッション作成時
+
+![tmux_initial_pane 002](https://user-images.githubusercontent.com/5877377/28238444-5b89a7b0-698e-11e7-995d-55f9378f1497.jpeg)
+---
+
+#### セッション, ウィンドウ, ペインの関係
+
+セッション内でウィンドウはいくつも持てる.
+ウィンドウ内でペインはいくつも持てる.
+
+![tmux_architecture_session_window_pane 001](https://user-images.githubusercontent.com/5877377/28238442-5738189a-698e-11e7-8a43-43ca03934aa9.jpeg)
 
 ---
 
