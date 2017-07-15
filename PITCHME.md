@@ -115,7 +115,7 @@ continue running in the background, then later reattached.
 
 #### インストール
 
-tmux 2.5を使う
+tmux を使う
 
 mac 
 
@@ -125,7 +125,8 @@ $ brew install tmux
 
 linux
 
-```sh
+```
+// read it
 https://raw.githubusercontent.com/tmux/tmux/master/README
 ```
 ---
