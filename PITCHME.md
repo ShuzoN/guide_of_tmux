@@ -125,9 +125,10 @@ $ brew install tmux
 
 linux
 
+```
 // read it
 https://raw.githubusercontent.com/tmux/tmux/master/README
-
+```
 ---
 
 ### セッション起動・接続と削除
