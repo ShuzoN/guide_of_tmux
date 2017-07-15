@@ -177,7 +177,8 @@ $ tmux kill-session -t target_sessoin_id
 
 セッション作成時
 
-![tmux_initial_pane 002](https://user-images.githubusercontent.com/5877377/28238444-5b89a7b0-698e-11e7-995d-55f9378f1497.jpeg)
+![tmux_initial_pane 002](https://user-images.githubusercontent.com/5877377/28238503-1a3f9aec-6990-11e7-892e-a739585f6ef8.jpeg)
+
 ---
 
 #### セッション, ウィンドウ, ペインの関係
@@ -185,7 +186,7 @@ $ tmux kill-session -t target_sessoin_id
 セッション内でウィンドウはいくつも持てる.
 ウィンドウ内でペインはいくつも持てる.
 
-![tmux_architecture_session_window_pane 001](https://user-images.githubusercontent.com/5877377/28238442-5738189a-698e-11e7-8a43-43ca03934aa9.jpeg)
+![tmux_initial_pane 001](https://user-images.githubusercontent.com/5877377/28238502-1a3e2482-6990-11e7-98fa-6669cf8080eb.jpeg)
 
 ---
 
