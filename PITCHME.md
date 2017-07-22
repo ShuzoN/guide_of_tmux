@@ -274,7 +274,16 @@ set-option -g default-command ""
 # 選択開始  : <C-Space>
 # コピー    : <C-w>
 set-window-option -g mode-keys emacs
+
+# ペイン移動/削除
 bind-key -T copy-mode C-w send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind -n S-left  select-pane -L  # 左
+bind -n S-down  select-pane -D  # 下
+bind -n S-up    select-pane -U  # 上
+bind -n S-right select-pane -R  # 右
+bind -n C-_ split-window -v # 水平分割: C-|
+bind -n C-\ split-window -h # 垂直分割: C--
+bind -n C-x kill-pane       # 削除: C-x (emaxerは要変更!)
 ```
 
 ---
@@ -300,8 +309,30 @@ bind -n C-l  if-shell "$is_vim" "send-keys C-l"  "select-pane -R"  # 右
 bind -n C-_  if-shell "$is_vim" "send-keys C-_"  "split-window -v" # 水平分割
 bind -n C-\  if-shell "$is_vim" "send-keys C-\\" "split-window -h" # 垂直分割
 bind -n C-x  if-shell "$is_vim" "send-keys :q" "kill-pane"         # 削除
+```
+---
 
-
+```
+# ---- status bar ----
+# 基本文字色
+set -g status-fg colour255 #white
+# 背景色
+set -g status-bg colour238 #gray
+# ---- Window-Status  ----
+# 中央揃えで配置
+set-option -g status-justify "centre"
+# basic formatを指定
+set-window-option -g window-status-format " #I: #W "
+# current window format(blue)
+set-window-option -g window-status-current-format "#[bg=colour32,bold] #I: #W #[default]"
+# ---- Status-Right  ----
+# 時刻表示
+set-option -g status-right '#[bg=colour240] [%H:%M]'
+# ---- Status-Left  ----
+# 最大長を指定
+set-option -g status-left-length 30
+# Session名表示
+set-option -g status-left "#[bg=colour240] [Session:#S] #[default]"
 ```
 ---
 
