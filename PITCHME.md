@@ -10,7 +10,6 @@
 
 #### こんな人に聞いて欲しい
 
- * あんまりターミナルを使ったことがない
  * ごりごりターミナル使うけどカスタマイズ面倒
  * 重い処理中にターミナルが落ちて萎えたことがある
  * iTermでターミナル複数起動してる
@@ -74,7 +73,7 @@ continue running in the background, then later reattached.
 
  - クライアント・サーバで動作する  
  - サーバがターミナルの情報を保持(セッション)  
- - クライアントはセッションに接続する  
+ - クライアントはセッションを選びサーバに接続する  
  - サーバとの接続が切れてもセッションが残っていれば再接続可能  
  - 異なる環境から同じtmuxセッションへ接続可能  
 
@@ -125,7 +124,6 @@ $ brew install tmux
 
 linux
 
-// read it  
 https://raw.githubusercontent.com/tmux/tmux/master/README
 
 
@@ -183,7 +181,7 @@ $ tmux kill-session -t target_sessoin_id
 
 #### セッション, ウィンドウ, ペインの関係
 
-セッション内でウィンドウはいくつも持てる.
+セッション内でウィンドウはいくつも持てる.  
 ウィンドウ内でペインはいくつも持てる.
 
 ![tmux_initial_pane 001](https://user-images.githubusercontent.com/5877377/28238502-1a3e2482-6990-11e7-98fa-6669cf8080eb.jpeg)
@@ -274,7 +272,11 @@ set-option -g default-command ""
 # 選択開始  : <C-Space>
 # コピー    : <C-w>
 set-window-option -g mode-keys emacs
+```
 
+---
+
+```
 # ペイン移動/削除
 bind-key -T copy-mode C-w send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 bind -n S-left  select-pane -L  # 左
@@ -297,7 +299,11 @@ bind-key -T copy-mode-vi V send -X select-line          # 行選択
 bind-key -T copy-mode-vi C-v send -X rectangle-toggle   # 矩形選択
 bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # コピー
 bind-key -T copy-mode-vi Escape send -X clear-selection # キャンセル
+```
 
+---
+
+```
 # ペインを移動,分割(vimに対応)
 # http://takegue.hatenablog.com/entry/2015/01/26/031231
 # Smart pane switching with awareness of vim splits
@@ -334,6 +340,21 @@ set-option -g status-left-length 30
 # Session名表示
 set-option -g status-left "#[bg=colour240] [Session:#S] #[default]"
 ```
+---
+
+### dotfilesで.tmux.confを管理する
+
+```
+HOME直下だとgitで管理しにくい. 
+設定ファイルをdotfilesディレクトリで管理する
+
+// ~/.tmux.conf
+source $HOME/dotfiles/.tmux.conf
+
+// ~/dotfiles/.tmux.conf
+設定を書く
+```
+
 ---
 
 tmuxで快適なターミナル生活を送ろう
