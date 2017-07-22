@@ -286,8 +286,7 @@ setw -g mode-keys vi
 bind-key -T copy-mode-vi v send -X begin-selection      # 選択
 bind-key -T copy-mode-vi V send -X select-line          # 行選択
 bind-key -T copy-mode-vi C-v send -X rectangle-toggle   # 矩形選択
-# コピー
-bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" 
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" # コピー
 bind-key -T copy-mode-vi Escape send -X clear-selection # キャンセル
 
 # ペインを移動,分割(vimに対応)
