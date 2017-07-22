@@ -239,7 +239,6 @@ or
 デフォルトのキーバインドを変えたり  
 見た目を変えることが出来る
 
-
 ---
 
 ### オススメの設定
@@ -247,40 +246,62 @@ or
 詳細 : [ShuzoN/dotfiles/.tmux.conf](https://github.com/ShuzoN/dotfiles/blob/master/.tmux.conf#L135)
 
 ```
-# クリップボード共有を有効にする
-set-option -g default-command ""
-
 # 256色端末を使用する
 set -g default-terminal "screen-256color"
 
-# ペインの縦"|", 横"-"で分割し,ペインの分割幅を均等にする
-bind -n C-\ split-window -h 
-bind -n C-_ split-window -v
+# ペインを分割, 削除
+bind -n C-\ split-window -h #垂直 : C-|
+bind -n C-_ split-window -v #水平 : C--
+bind -n C-x kill-pane       #削除 : C-x
 
 # マウス操作を有効にする
 set-option -g mouse on
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" \
  "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
+ 
+# C-nでwindowを移動
+bind -n C-n select-window -n
 ```
 
 ---
 
 ```
-# Ctrl-n でペインをローテーションしながら移動
-bind -n C-n select-window -n
+# クリップボード共有を有効にする
+set-option -g default-command ""
 
-# vimとtmux間を移動
+# emacs キーバインド
+# copy mode : <C-b>+[
+# 選択開始  : <C-Space>
+# コピー    : <C-w>
+set-window-option -g mode-keys emacs
+bind-key -T copy-mode C-w send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+```
+
+---
+
+```
+# vim バインド
+# コピーモードを設定する
+setw -g mode-keys vi
+bind-key -T copy-mode-vi v send -X begin-selection      # 選択
+bind-key -T copy-mode-vi V send -X select-line          # 行選択
+bind-key -T copy-mode-vi C-v send -X rectangle-toggle   # 矩形選択
+# コピー
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" 
+bind-key -T copy-mode-vi Escape send -X clear-selection # キャンセル
+
+# ペインを移動,分割(vimに対応)
 # http://takegue.hatenablog.com/entry/2015/01/26/031231
 # Smart pane switching with awareness of vim splits
-is_vim='echo "#{pane_current_command}"  \ 
-  | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
-bind -n C-h  if-shell "$is_vim" "send-keys C-h"   "select-pane -L"
-bind -n C-j  if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
-bind -n C-k  if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
-bind -n C-l  if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
-bind -n C-_  if-shell "$is_vim" "send-keys C-_"  "split-window -v"
-bind -n C-\  if-shell "$is_vim" "send-keys C-\\" "split-window -h"
-bind -n C-x  if-shell "$is_vim" "send-keys :q" "kill-pane"
+is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+bind -n C-h  if-shell "$is_vim" "send-keys C-h"  "select-pane -L"  # 左
+bind -n C-j  if-shell "$is_vim" "send-keys C-j"  "select-pane -D"  # 下
+bind -n C-k  if-shell "$is_vim" "send-keys C-k"  "select-pane -U"  # 上
+bind -n C-l  if-shell "$is_vim" "send-keys C-l"  "select-pane -R"  # 右
+bind -n C-_  if-shell "$is_vim" "send-keys C-_"  "split-window -v" # 水平分割
+bind -n C-\  if-shell "$is_vim" "send-keys C-\\" "split-window -h" # 垂直分割
+bind -n C-x  if-shell "$is_vim" "send-keys :q" "kill-pane"         # 削除
+
 
 ```
 ---
