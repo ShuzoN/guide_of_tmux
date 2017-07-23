@@ -340,6 +340,7 @@ set-option -g status-left-length 30
 # Session名表示
 set-option -g status-left "#[bg=colour240] [Session:#S] #[default]"
 ```
+
 ---
 
 ### dotfilesで.tmux.confを管理する
@@ -353,6 +354,16 @@ source $HOME/dotfiles/.tmux.conf
 
 // ~/dotfiles/.tmux.conf
 設定を書く
+```
+---
+
+alias >> .zshrc
+```
+# tmux alias
+alias -g tls='tmux ls'
+alias -g tat='tmux a -t'
+alias -g trn='tmux rename-session -t'
+alias -g tkl='tmux kill-session -t'
 ```
 
 ---
