@@ -265,7 +265,8 @@ bind -n C-n select-window -n
 
 ```
 # クリップボード共有を有効にする
-set-option -g default-command ""
+# for mac : brew install reattach-to-user-namespace
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 
 # emacs キーバインド
 # copy mode : <C-b>+[
